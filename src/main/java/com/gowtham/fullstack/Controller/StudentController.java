@@ -3,6 +3,7 @@ package com.gowtham.fullstack.Controller;
 import com.gowtham.fullstack.Entity.StudentEntity;
 import com.gowtham.fullstack.Service.StudentService;
 import com.gowtham.fullstack.Service.StudentServiceImple;
+import com.gowtham.fullstack.error.StudentNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,7 @@ public class StudentController {
     }
 
     @GetMapping("/students/{id}")
-    public StudentEntity fetchById(@PathVariable("id") Long studentId)
-    {
+    public StudentEntity fetchById(@PathVariable("id") Long studentId) throws StudentNotFoundException {
         return studentService.fetchById(studentId);
     }
 

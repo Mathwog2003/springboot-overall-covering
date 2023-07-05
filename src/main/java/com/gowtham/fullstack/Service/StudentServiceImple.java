@@ -2,11 +2,13 @@ package com.gowtham.fullstack.Service;
 
 import com.gowtham.fullstack.Entity.StudentEntity;
 import com.gowtham.fullstack.JpaRepositary.StudentRepositary;
+import com.gowtham.fullstack.error.StudentNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class StudentServiceImple implements StudentService {
@@ -24,9 +26,14 @@ public class StudentServiceImple implements StudentService {
     }
 
     @Override
-    public StudentEntity fetchById(Long studentId)
-    {
-       return studentRepositary.findById(studentId).get();
+    public StudentEntity fetchById(Long studentId) throws StudentNotFoundException {
+       Optional<StudentEntity> student = studentRepositary.findById(studentId);
+
+       if(!student.isPresent())
+       {
+           throw new StudentNotFoundException("student details not found");
+       }
+       return student.get();
         
     }
 

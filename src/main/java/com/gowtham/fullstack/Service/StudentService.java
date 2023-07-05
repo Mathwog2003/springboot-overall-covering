@@ -1,6 +1,7 @@
 package com.gowtham.fullstack.Service;
 
 import com.gowtham.fullstack.Entity.StudentEntity;
+import com.gowtham.fullstack.error.StudentNotFoundException;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface StudentService {
 
     public List<StudentEntity> getStudentsList();
 
-    public StudentEntity fetchById(Long studentId);
+    public StudentEntity fetchById(Long studentId) throws StudentNotFoundException;
 
 
     public void deleteStudentById(Long id);
