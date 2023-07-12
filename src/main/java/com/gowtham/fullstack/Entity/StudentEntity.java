@@ -4,12 +4,14 @@ package com.gowtham.fullstack.Entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
+
 
 
 @Entity
@@ -19,12 +21,14 @@ import javax.validation.constraints.NotBlank;
 @Builder
 public class StudentEntity {
 
+
     @Id
     @GeneratedValue
     private Long studentId;
-
+    @Valid
+    @NotBlank(message = "add the student name")
     private String studentName;
-    @NotBlank(message = "please add the student rollnumber")
+
     private String studentRollNumber;
     private String studentDepartment;
 

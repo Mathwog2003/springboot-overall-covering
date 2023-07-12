@@ -4,12 +4,13 @@ import com.gowtham.fullstack.Entity.StudentEntity;
 import com.gowtham.fullstack.Service.StudentService;
 import com.gowtham.fullstack.Service.StudentServiceImple;
 import com.gowtham.fullstack.error.StudentNotFoundException;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class StudentController {
     private StudentService studentService;
 
     @PostMapping("/students")
-    public StudentEntity saveStudent(@Valid @RequestBody StudentEntity studentEntity)
+    public StudentEntity saveStudent(@Valid  @RequestBody StudentEntity studentEntity)
     {
         return studentService.saveStudent(studentEntity);
     }
