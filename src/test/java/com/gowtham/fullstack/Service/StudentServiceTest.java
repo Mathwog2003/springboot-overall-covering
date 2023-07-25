@@ -2,9 +2,7 @@ package com.gowtham.fullstack.Service;
 
 import com.gowtham.fullstack.Entity.StudentEntity;
 import com.gowtham.fullstack.JpaRepositary.StudentRepositary;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,6 +28,8 @@ class StudentServiceTest {
     }
 
     @Test
+    @DisplayName("Get  student data based on student name  ")
+    //@Disabled  if u want avoid any particular test case, we can use @Disabled annotation
     public void whenStudentName_thenStudentShouldFound()
     {
         String studentName = "gowtham";
