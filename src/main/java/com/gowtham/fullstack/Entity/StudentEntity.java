@@ -29,6 +29,7 @@ public class StudentEntity {
     @NotBlank(message = "add the student name")
     private String studentName;
 
+
     private String studentRollNumber;
     private String studentDepartment;
 
